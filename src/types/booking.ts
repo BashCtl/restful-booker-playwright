@@ -8,6 +8,6 @@ export interface Booking {
   lastname: string;
   totalprice: number;
   depositpaid: boolean;
-  bookingdate: BookingDates;
+  bookingdates: BookingDates;
   additionalneeds?: string;
 }

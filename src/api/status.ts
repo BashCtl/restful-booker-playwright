@@ -1,0 +1,12 @@
+export const STATUS = {
+  OK_200: 200,
+  CREATED_201: 201,
+  BAD_REQUEST_400: 400,
+  UNAUTHORIZED_401: 401,
+  FORBIDDEN_403: 403,
+  NOT_FOUND_404: 404,
+  METHOD_NOT_ALLOWED_405: 405,
+  INTERNAL_SERVER_ERROR_500: 500,
+} as const;
+
+export type StatusCode = (typeof STATUS)[keyof typeof STATUS];

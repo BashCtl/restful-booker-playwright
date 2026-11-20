@@ -1,5 +1,6 @@
 import { APIRequestContext, APIResponse, test } from "@playwright/test";
 import { APILogger } from "../utils/logger";
+import { StatusCode } from "./status";
 
 type Method = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
@@ -42,27 +43,27 @@ export class RequestHandler {
     return this;
   }
 
-  getRequest(expectedStatus: number) {
+  getRequest(expectedStatus: StatusCode) {
     return this.send("GET", expectedStatus);
   }
 
-  postRequest(expectedStatus: number) {
+  postRequest(expectedStatus: StatusCode) {
     return this.send("POST", expectedStatus);
   }
 
-  putRequest(expectedStatus: number) {
+  putRequest(expectedStatus: StatusCode) {
     return this.send("PUT", expectedStatus);
   }
 
-  patchRequest(expectedStatus: number) {
+  patchRequest(expectedStatus: StatusCode) {
     return this.send("PATCH", expectedStatus);
   }
 
-  deleteRequest(expectedStatus: number) {
+  deleteRequest(expectedStatus: StatusCode) {
     return this.send("DELETE", expectedStatus);
   }
 
-  private async send(method: Method, expectedStatus: number): Promise<any> {
+  private async send(method: Method, expectedStatus: StatusCode): Promise<any> {
     const url = this.buildUrl();
     const headers = this.buildHeaders();
     const data = this.apiBody;
